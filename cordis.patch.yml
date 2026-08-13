@@ -1,0 +1,9 @@
+# dsh-web-attention-badge bundle patch: contributes one browser-roster row
+# (a `dsh.client` entry). The node half (lib/index.js) is an empty apply —
+# the row exists so the host Loader lists the plugin and the modules node
+# half composes it into window.__DSH_BOOT__; all behavior lives in the
+# browser half (exports["./client"]).
+
+- insert:
+    - id: ui-attention-badge
+      name: 'dsh-web-attention-badge'
