@@ -1,9 +1,14 @@
 name: npm publish
 
 # Publish to npm when a v* tag is pushed (e.g. git tag v0.3.0 && git push --tags).
+# Uses npm Trusted Publishing (OIDC): no tokens stored anywhere. Requires the
+# package's Trusted Publishers entry on npmjs.com (set once after first publish).
 on:
   push:
     tags: ["v*"]
+
+permissions:
+  id-token: write
 
 jobs:
   publish:
@@ -14,6 +19,4 @@ jobs:
         with:
           node-version: 20
           registry-url: https://registry.npmjs.org
-      - run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - run: npm publish --access public --provenance

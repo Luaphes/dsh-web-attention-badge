@@ -40,17 +40,26 @@ git tag v<version>
 git push origin main --tags
 ```
 
-3. Publish to npm — either manually:
+3. Publish to npm.
 
-```sh
-npm pack --dry-run          # check the tarball contents first
-npm publish --access public
-```
+   First release (manual, once): npm classic tokens are retired, so create a
+   **granular access token** at https://www.npmjs.com/settings/~/tokens
+   (Granular Access Token → All packages → read and write → check
+   **Bypass 2FA**), then publish:
 
-or automatically: the CI workflow `.github/workflows/npm-publish.yml` runs
-`npm publish` on every `v*` tag push. Set the `NPM_TOKEN` secret once in the
-repo settings (Settings → Secrets and variables → Actions → New repository
-secret).
+   ```sh
+   npm publish --access public --registry=https://registry.npmjs.org
+   ```
+
+   (Note the explicit registry: a China mirror like npmmirror is read-only.)
+
+   Every later release is automatic: the workflow
+   `.github/workflows/npm-publish.yml` runs `npm publish --provenance` on each
+   `v*` tag push via **npm Trusted Publishing (OIDC)** — no tokens stored, no
+   90-day rotation. After the first publish, add the trusted publisher once:
+   npmjs.com package page → Settings → Access → Trusted publishers → Add
+   trusted publisher → owner `Luaphes`, repo `dsh-web-attention-badge`,
+   workflow `.github/workflows/npm-publish.yml`.
 
 ## Community visibility
 
