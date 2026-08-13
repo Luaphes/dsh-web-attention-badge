@@ -17,6 +17,10 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           registry-url: https://registry.npmjs.org
+      # OIDC trusted publishing needs a recent npm CLI (>= 11.5.1):
+      # node 20's bundled npm 10 fails the OIDC token exchange with a
+      # misleading 404 "is not in this registry".
+      - run: npm install -g npm@latest
       - run: npm publish --access public --provenance
