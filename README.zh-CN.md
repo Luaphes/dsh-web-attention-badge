@@ -20,7 +20,7 @@ dsh plugin --profile web add dsh-web-attention-badge
 或直接从 GitHub 安装：
 
 ```sh
-dsh plugin --profile web add "github:Luaphes/dsh-web-attention-badge#v0.3.0"
+dsh plugin --profile web add "github:Luaphes/dsh-web-attention-badge#v0.3.1"
 ```
 
 升级 / 卸载：

@@ -25,7 +25,7 @@ dsh plugin --profile web add dsh-web-attention-badge
 Or install straight from GitHub:
 
 ```sh
-dsh plugin --profile web add "github:Luaphes/dsh-web-attention-badge#v0.3.0"
+dsh plugin --profile web add "github:Luaphes/dsh-web-attention-badge#v0.3.1"
 ```
 
 Upgrade / uninstall:
