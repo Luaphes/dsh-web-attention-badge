@@ -1,7 +1,7 @@
 {
   "name": "dsh-web-attention-badge",
   "description": "Web attention badge: a top-left corner indicator counting sessions waiting for user input or finished-but-unopened, plus a browser tab title prefix",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "type": "module",
   "repository": {
     "type": "git",
