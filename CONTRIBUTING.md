@@ -59,7 +59,8 @@ git push origin main --tags
    90-day rotation. After the first publish, add the trusted publisher once:
    npmjs.com package page → Settings → Access → Trusted publishers → Add
    trusted publisher → owner `Luaphes`, repo `dsh-web-attention-badge`,
-   workflow `.github/workflows/npm-publish.yml`.
+   workflow filename `npm-publish.yml` (filename only — npm's form rejects
+   paths like `.github/workflows/npm-publish.yml`).
 
 ## Community visibility
 
